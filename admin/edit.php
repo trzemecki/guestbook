@@ -30,7 +30,7 @@ if(filter_has_var(INPUT_POST, 'target')){
         $db->remove_entries($ids);
     }
     
-    $message = 'Edycja zakończona pomyślnie';
+    $message = 'Edition finished successfully';
 }
 
 if (filter_input(INPUT_GET, 'ajax', FILTER_SANITIZE_NUMBER_INT)) {
