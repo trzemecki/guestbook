@@ -7,7 +7,7 @@ Website guest book written in PHP
 ## Instalation info
 After unzip files on your server go to ~/admin/ and try login with 
 
-Name: **admin**
+Name: **admin**  
 Passowrd: **admin**
 
 Then go to settings and change user name and passowrd.
