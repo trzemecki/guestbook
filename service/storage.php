@@ -1,5 +1,4 @@
 <?php
-DEFINE('DEBUG', 1);
 date_default_timezone_set("Europe/London");  # TODO allow to set in settings panel
 
 $EMOTICONS = array(
@@ -32,11 +31,8 @@ class Database {
     
     public function __construct($prefix='../') {
         $this->location = $prefix . $this::PAHT;
-//        unlink($this->location);
         $initialized = file_exists($this->location);
         $this->pdo = new PDO('sqlite:' . $this->location);
-        
-        DEBUG && $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         if(!$initialized) {
             $this->init_db();
