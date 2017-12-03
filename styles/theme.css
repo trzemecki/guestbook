@@ -1,41 +1,28 @@
+#records {
+    margin-top: 10px;
+}
+
 .record {
     margin-bottom: 20px;
     margin-top: 5px;
-    border-width: 3px;
+    border-width: 1px;
     border-style: solid;
-    border-radius: 5px;
-    border-color: #bab6fc;
+    box-shadow: 5px 5px 5px grey;
+    border-color: gray;
+    background: #fdffe3;
+    font: 16px "Arial";
 }
 
-.record div div {
-    border-bottom: solid 1px #949494;
-    background: #efeeff;
-    font: 16px "momotyped";
+.record > div {
     padding-top: 3px;
+    padding-bottom: 3px;
 }
 
-.record div:hover div {
-    background: #dedded;
+.record > div:last-child {
+    font: 16px "momotyped";
+    padding-top: 5px;
 }
 
-.record div div:first-child {
-    background: #bab6fc;
-    font: 16px "Arial";
+.record-edit.checked {
+    background-color: lightcoral;
 }
-
-.record div:hover div:first-child {
-    background: #aba7e8;
-}
-
-.record .entry div {
-    border-bottom: none;
-    background: #efeeff;
-    padding-top: 10px;
-    font: 16px "Arial";
-}
-
-.record .entry div:first-child {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-

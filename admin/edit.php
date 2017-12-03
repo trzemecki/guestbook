@@ -86,6 +86,7 @@ $records = $db->get_entries($site);
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" 
           crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/theme.css" rel="stylesheet">
   </head>
   <body>
       <?php include '../service/navbar.php'; ?>
@@ -110,8 +111,13 @@ $records = $db->get_entries($site);
             echo 'Empty';
         } else {
             foreach ($records as $record) {
-                echo "<div class=\"record\"><input type=\"checkbox\" name=\"record_{$record['ID']}\">";
+                echo '<div class="container record-edit">';
+                echo '<div class="row align-items-center">';
+                echo '<div class="col-11">';
                 echo format_record($record);
+                echo '</div>';
+                echo '<div class="col"><input type="checkbox" name="record_' . $record['ID'] . '"></div>';
+                echo '</div>';
                 echo '</div>';
             }
         }
@@ -133,9 +139,11 @@ $records = $db->get_entries($site);
       <script src="js/admin_records.js"></script>
       <script src="js/sites.js"></script>
       <script>
-          $(initAdminKit);
+          $(function() {
+              initAdminKit("div.record-edit");
+          });
           $(function () {
-              divideIntoSites("#records");
+              divideIntoSites("#records", 'div.record-edit');
           });
       </script>
   </body>

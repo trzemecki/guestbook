@@ -1,6 +1,6 @@
-function divideIntoSites(selector, site_size=10) {
+function divideIntoSites(selector, item_selector='div.record', site_size=10) {
     var container = $(selector);
-    var records = container.find('> div.record');
+    var records = container.find('> ' + item_selector);
     
     var sites_count = Math.ceil(records.length / site_size);
     

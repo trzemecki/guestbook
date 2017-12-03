@@ -24,6 +24,7 @@ $TEXT_FORMATING = array(
     '[link]' => '<a href="http://',
     '[/url]' => '">',
     '[/link]' => '</a>',
+    "&#13;" => '<br />'
 );
 
 

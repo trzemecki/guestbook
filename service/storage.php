@@ -244,21 +244,12 @@ function format_reply($status, $message, $details='') {
 
 function format_record(&$record) {
     return '<div class="container record">
-        <div class="row name">
-            <div class="col-sm-3 col-lg-2">Name:</div>
-            <div class="col-sm-9 col-lg-10">' . $record['Name'] . '</div>
+        <div class="row">
+            <div class="col-12">' . replace_emoticons($record['Message']) . '</div>
         </div>
-        <div class="row email">
-            <div class="col-sm-3 col-lg-2">E-mail:</div>
-            <div class="col-sm-9 col-lg-10">' . $record['Email'] . '</div>
-        </div>
-        <div class="row date">
-            <div class="col-sm-3 col-lg-2">Date:</div>
-            <div class="col-sm-9 col-lg-10">' . date('d.m.y H:i:s', $record['CreationTime']) . '</div>
-        </div>     
-        <div class="row entry">
-            <div class="col-sm-3 col-lg-2">Message:</div>
-            <div class="col-sm-9 col-lg-10">' . replace_emoticons($record['Message']) . '</div>
+        <div class="row">
+            <div class="col-sm-5 col-md-4">' . date('d.m.y H:i:s', $record['CreationTime']) . '</div>
+            <div class="col-sm-5 col-md-4">' . $record['Name'] . (empty($record['Email']) ? '' : ' (' . $record['Email'] . ')') . '</div>
         </div>
     </div>';
 }
