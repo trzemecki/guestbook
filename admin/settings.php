@@ -10,7 +10,7 @@ require_once '../service/storage.php';
 
 $message = '';
 
-$update = filter_input(INPUT_POST, 'change_type', FILTER_SANITIZE_STRING);
+$update = filter_input(INPUT_POST, 'change_type');
 
 function format_message($status, $message, $details = '') {
     return '
@@ -27,9 +27,9 @@ function format_message($status, $message, $details = '') {
 
 function update_user_credits() {
     $user_name = filter_input(INPUT_POST, 'user_name', FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-    $repeat = filter_input(INPUT_POST, 'repeat_password', FILTER_SANITIZE_STRING);
-    $confirm = filter_input(INPUT_POST, 'confirm_password', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password');
+    $repeat = filter_input(INPUT_POST, 'repeat_password');
+    $confirm = filter_input(INPUT_POST, 'confirm_password');
 
     if (empty($user_name)) {
         return format_message('warning', 'Invalid input', 'User name is empty');

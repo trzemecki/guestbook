@@ -3,16 +3,17 @@ Website guest book written in PHP
 
 
 ## License
-Libary is licensed under BSD 3-Clause License
+Library is licensed under BSD 3-Clause License
 
-## Requriements
-**PHP 5.2** with **pdo_sqlite** extension
+## Requirements
+**PHP 8.1** with **pdo_sqlite** extension.
+May also works with older php versions, but since they are not supported, this is not guaranteed.
 
-## Instalation info
+## Installation info
 After unzip files on your server go to ~/admin/ and try login with 
 
 Name: **admin**  
-Passowrd: **admin**
+Password: **admin**
 
 Then go to settings and change user name and password.
 
@@ -22,18 +23,18 @@ Then go to settings and change user name and password.
 - removing approved entires
 - store removed entries in bin
 
-## Screencaptures
+## Screen captures
 
 ### Adding entry site
 
-![Entry site image](https://trzemecki.github.io/guestbook/image_1.png)
+![Entry site image](docs/image_1.png)
 
-![Entry site image with input data](https://trzemecki.github.io/guestbook/image_2.png)
+![Entry site image with input data](docs/image_2.png)
 
 ### Admin approving site
 
-![Approving site image](https://trzemecki.github.io/guestbook/image_3.png)
+![Approving site image](docs/image_3.png)
 
 ### Entry review site
 
-![Review site image](https://trzemecki.github.io/guestbook/image_4.png)
+![Review site image](docs/image_4.png)

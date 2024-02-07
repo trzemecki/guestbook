@@ -2,7 +2,7 @@
 require_once 'service/storage.php';
 
 
-$TEXT_FORMATING = array(
+$TEXT_FORMATTING = array(
     '[b]' => '<b>',
     '[/b]' => '</b>',
     '[i]' => '<i>',
@@ -32,8 +32,8 @@ $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
 $message = str_replace(
-    array_keys($TEXT_FORMATING), 
-    array_values($TEXT_FORMATING),  
+    array_keys($TEXT_FORMATTING), 
+    array_values($TEXT_FORMATTING),  
     filter_input(INPUT_POST, 'entry', FILTER_SANITIZE_SPECIAL_CHARS)
 );
 

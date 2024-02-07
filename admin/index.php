@@ -14,7 +14,7 @@ $db = new Database('../');
 
 if (!isset($_SESSION['logged']) && filter_has_var(INPUT_POST, 'login')) {
     $user_name = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password');
 
     $login_try_time = $db->get_next_login_try_time();
 
@@ -34,9 +34,9 @@ if (!isset($_SESSION['logged']) && filter_has_var(INPUT_POST, 'login')) {
     }
 }
 
-if (isset($_SESSION['logged']) && filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING) == 'logout') {
+if (isset($_SESSION['logged']) && filter_input(INPUT_GET, 'action') == 'logout') {
     unset($_SESSION['logeed']);
-    setcookie('is_logged', null, 0, '/');
+    setcookie('is_logged', '', 1, '/');
     session_destroy();
 
     $reload = true;

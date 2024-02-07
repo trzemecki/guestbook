@@ -38,7 +38,7 @@ if (filter_input(INPUT_GET, 'ajax', FILTER_SANITIZE_NUMBER_INT)) {
     die();
 }
 
-$kind = filter_input(INPUT_GET, 'kind', FILTER_SANITIZE_STRING);
+$kind = htmlspecialchars(filter_input(INPUT_GET, 'kind'));
 $sites = array(
     'not_approved' => Database::NOT_APPROVED, 
     'approved' => Database::APPROVED, 

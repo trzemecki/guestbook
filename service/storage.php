@@ -21,7 +21,7 @@ $EMOTICONS = array(
 );
 
 class Database {
-    const PAHT = 'db.sqlite';
+    const PATH = 'db.sqlite';
     const NOT_APPROVED = 1;
     const APPROVED = 2;
     const BIN = 3;
@@ -30,7 +30,7 @@ class Database {
     private $location = '';
     
     public function __construct($prefix='../') {
-        $this->location = $prefix . $this::PAHT;
+        $this->location = $prefix . $this::PATH;
         $initialized = file_exists($this->location);
         $this->pdo = new PDO('sqlite:' . $this->location);
         
@@ -80,8 +80,8 @@ class Database {
         $request = $this->pdo->prepare("SELECT Password FROM Users WHERE UserName=:user_name;");
         $request->bindParam(':user_name', $user_name, PDO::PARAM_STR, 50);
         $request->execute();
-        $valid_passowrd = $request->fetch()['Password'];
-        return !empty($valid_passowrd) and sha1($password) === $valid_passowrd;
+        $valid_password = $request->fetch()['Password'];
+        return !empty($valid_password) and sha1($password) === $valid_password;
     }
     
     public function change_user($user_name, $new_user_name, $new_password) {
@@ -105,10 +105,12 @@ class Database {
         $request->execute();
         
         $data = $request->fetch();
-        
-        return $data['FailCount'] > 3? 
-            $data['LastTryTime'] + ($data['FailCount'] - 3) * 5 * 60: 0;
-            
+
+        if ($data !== false && $data['FailCount'] > 3) {
+            return $data['LastTryTime'] + ($data['FailCount'] - 3) * 5 * 60;
+        }  else {
+            return 0;
+        }
     }
     
     public function get_last_login_time($user_name) {
